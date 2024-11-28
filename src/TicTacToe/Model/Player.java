@@ -2,7 +2,10 @@ package TicTacToe.Model;
 
 import TicTacToe.PlayerType;
 
+import java.util.Scanner;
+
 public class Player {
+    Board board;
     int id;
     char Symbol;
     String name;
@@ -47,5 +50,20 @@ public class Player {
 
     public void setPlayertype(PlayerType playertype) {
         this.playertype = playertype;
+    }
+    public void takeInput(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Please enter the size of the board");
+        int s=sc.nextInt();
+        board=new Board();//create board object
+        board.displayboard(s);//display board of size s
+        System.out.println("please enter the name");
+        String a=sc.next();
+        this.name=a;
+
+    }
+    public void makeMove(){
+        //player make move--set cell filled
+
     }
 }

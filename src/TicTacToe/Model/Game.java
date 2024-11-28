@@ -2,7 +2,9 @@ package TicTacToe.Model;
 
 import TicTacToe.Exceptions.InvalidPlayerCountException;
 import TicTacToe.Exceptions.InvalidSymbolException;
+import TicTacToe.Exceptions.botException;
 import TicTacToe.PlayerType;
+import TicTacToe.Strategy.WinningStrategy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +18,7 @@ public class Game {
     private Player currentPlayer;//player object
     private Board board;//board object
     private List<Move>moves;//for replay/
+    private WinningStrategy winningStrategy;
 
     private Game(int dimension, List<Player> players, Board board, List<Move> moves) {
         Dimension = dimension;
@@ -94,30 +97,36 @@ public Builder builder(){
             return this;
         }
         //validate
-        public void validatePlayer(){
-            if(players.size()>Dimension-1 || players.size()<Dimension-2){
-                throw new InvalidPlayerCountException("check the player count");
-            }
-        }
-        public void validateSymbol(){
-            HashSet<char>hs=new HashSet<>();
-            for(Player:players){
-                hs.add(Player.getSymbol());
-            }
-            if(hs.size()<Dimension-1){
-                throw new InvalidSymbolException("Symbol should be eaual to number of players");
-            }
-        }
-        public void validatBot(){
-            int bot=0;
-            for(Player:player){
-                if(Player.getPlayertype()== PlayerType.BOT){
-                    bot++;
-                }
-            }
-            if(bot!=1){
-                throw new botException("bot count should be 1")
-            }
+      public void  validate() {
+          public void validatePlayer () {
+              if (players.size() > Dimension - 1 || players.size() < Dimension - 2) {
+                  throw new InvalidPlayerCountException("check the player count");
+              }
+          }
+          public void validateSymbol () {
+              HashSet<Character> hs = new HashSet<>();
+              for (Player p : players) { //iterate through the list
+                  hs.add(p.getSymbol());//p is a variable
+              }
+              if (hs.size() < Dimension - 1) {
+                  throw new InvalidSymbolException("Symbol should be eaual to number of players");
+              }
+          }
+          public void validatBot () {
+              int bot = 0;
+              for (Player p : players) {//iterate through the list
+                  if (p.getPlayertype() == PlayerType.BOT) {
+                      bot++;
+                  }
+              }
+              if (bot != 1) {
+                  throw new botException("bot count should be 1");
+              }
+          }
+      }
+        public Game build(){
+            validate();
+            return null;
         }
     }
 }
