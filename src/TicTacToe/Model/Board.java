@@ -4,11 +4,20 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Board {
+    //Board is list of list of cells
    private int Dimension;
-    private Cell cell;
+    private ArrayList<ArrayList<Cell>> matrix;
 
-    public Board(int dimension {
+
+    public Board(int dimension) {//creating Board with dimension
         Dimension = dimension;
+        matrix=new ArrayList<>();
+        for(int i=0;i<Dimension;i++){
+            matrix.add(new ArrayList<>());
+            for(int j=0;j<Dimension;j++){// adding cells
+                matrix.get(i).add(new Cell(i,j));
+            }
+        }
 
     }
     public Board() {//empty constructor
@@ -18,26 +27,15 @@ public class Board {
 
     public int getDimension() {
         return Dimension;
+
     }
 
     public void setDimension(int dimension) {
         Dimension = dimension;
     }
 
-    public Cell getCell() {
-        return cell;
-    }
 
-    public void setCell(Cell cell) {
-        this.cell = cell;
-    }
     public void displayboard(int Dimension){
-        List<List<Cell>>matrix;
-        for(int i=0;i<Dimension;i++){
-            matrix=new List();
-            for(int j=0;j<Dimension;j++){
-                matrix.get(i).add(Cell.)
-            }
-        }
+
     }
 }

@@ -47,7 +47,7 @@ public class Cell {
         this.cellstate = cellstate;
     }
     public void displayCell(){
-        if(getCellstate()==CellState.EMPTY){
+        if(player==null){
             System.out.println("| |");//empty cell
         }
         else{
