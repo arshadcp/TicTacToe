@@ -5,5 +5,5 @@ import TicTacToe.Model.Move;
 import TicTacToe.Model.Player;
 
 public interface BotPlayingStrategy {
-    public Move makeMove(Board board, Player bot);
+     Move makeMove(Board board, Player player);
 }

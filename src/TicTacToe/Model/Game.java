@@ -150,7 +150,7 @@ public class Game {
         //validate
 
           public void validatePlayer(){
-              if (players.size() <board.getDimension() - 2 || players.size() >=board.getDimension()) {
+              if (players.size() <Dimension - 2 || players.size() >=Dimension) {
                   throw new InvalidPlayerCountException("check the player count");
               }
           }
@@ -164,13 +164,13 @@ public class Game {
               }
           }
           public void validateBot(){
-              int bot = 0;
+              int botcount = 0;
               for (Player p : players) {//iterate through the list
                   if (p.getPlayertype().equals( PlayerType.BOT)) {
-                      bot++;
+                      botcount++;
                   }
               }
-              if (bot > 1|| bot < 0) {
+              if (botcount > 1|| botcount < 0) {
                   throw new botException("bot count should be 1");
               }
           }

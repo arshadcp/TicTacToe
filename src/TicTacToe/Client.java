@@ -40,11 +40,12 @@ public class Client {
             players.add(p);
 
         }
-        System.out.println("Hi");
+        System.out.println(players.size());
         Game game=gameController.createGame(dimension,players, WinningStrategyName.ORDER_1);
 
-        int playerindex=-1;
         Collections.shuffle(players);//randomise play
+        int playerindex=-1;
+
 
         while(game.getGameStatus().equals(GameStatus.IN_PROGRESS)){
             System.out.println("current Board status");

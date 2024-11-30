@@ -6,7 +6,7 @@ import TicTacToe.PlayerType;
 import java.util.Scanner;
 
 public class Player {
-    Board board;
+
     private int id;
     private char Symbol;
    private String name;
@@ -16,6 +16,7 @@ public class Player {
         this.id = id;
         Symbol = symbol;
         this.name = name;
+        this.playertype=playertype;
     }
     public Player(){
 

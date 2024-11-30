@@ -41,7 +41,7 @@ public class Order1WinningStrategy implements WinningStrategy{
        boolean winner=(rowCheck(row, Symbol)||colCheck( col, Symbol)
                 ||(leftdiagonal( row,  col)&&leftdiagonalCheck( Symbol))
                 ||(rightdiagonal( row, col) && rightdiagonalCheck( Symbol))
-                || cornerCheck( Symbol));
+                ||(corner(row,col) && cornerCheck(Symbol)));
        if(winner){
            return player;
        }else{
@@ -102,5 +102,13 @@ public class Order1WinningStrategy implements WinningStrategy{
     }
     public boolean rightdiagonal(int row,int col){
         return (row+col==Dimension-1);
+    }
+    public boolean corner(int row,int col){
+       return(
+               (row==0 && col==0) ||
+               (row==0 && col==Dimension-1)||
+               (row==Dimension-1 && col==0)||
+               (row==0 && col==Dimension-1)
+               );
     }
 }

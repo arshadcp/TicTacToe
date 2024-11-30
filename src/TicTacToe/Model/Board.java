@@ -43,7 +43,7 @@ public class Board {
     }
 
 
-    public void displayboard(int Dimension){
+    public void displayboard(){
         //iterate cell and display
         for(int i=0;i<Dimension;i++) {
             ArrayList<Cell> cells = matrix.get(i);//pulling out row from board(matrix)

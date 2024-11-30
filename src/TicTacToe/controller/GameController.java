@@ -23,7 +23,7 @@ public class GameController {
                 .build();
     }
     public void displayBoard(Game game){
-        game.getBoard().displayboard(game.getDimension());
+        game.getBoard().displayboard();
     }
     public Move excecuteMove(Game game,Player player){
        return player.makeMove(game.getBoard());

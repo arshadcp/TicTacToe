@@ -1,8 +1,7 @@
 package TicTacToe.Service.Strategy;
 
 public class BotPlayingStrategyFactory {
-    public static BotPlayingStrategy getbotPlayingStrategy(){
+    public static BotPlayingStrategy getBotPlayingStrategy(){
         return new RandomBotPlayingStrategy();
-
     }
 }

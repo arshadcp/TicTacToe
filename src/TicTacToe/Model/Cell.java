@@ -48,10 +48,10 @@ public class Cell {
     }
     public void displayCell(){
         if(player==null){
-            System.out.println("| |");//empty cell
+            System.out.print("| |");//empty cell
         }
         else{
-            System.out.println("|"+player.getSymbol()+"|");//dispay cell with symbol
+            System.out.print("|"+player.getSymbol()+"|");//dispay cell with symbol
         }
     }
 }
