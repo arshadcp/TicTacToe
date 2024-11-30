@@ -25,6 +25,14 @@ public class Board {
 
     }
 
+    public ArrayList<ArrayList<Cell>> getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(ArrayList<ArrayList<Cell>> matrix) {
+        this.matrix = matrix;
+    }
+
     public int getDimension() {
         return Dimension;
 
@@ -36,6 +44,13 @@ public class Board {
 
 
     public void displayboard(int Dimension){
-
+        //iterate cell and display
+        for(int i=0;i<Dimension;i++) {
+            ArrayList<Cell> cells = matrix.get(i);//pulling out row from board(matrix)
+            for(Cell c:cells){//loop through cell
+                c.displayCell();
+            }
+            System.out.println();//each row in separate line
+        }
     }
 }

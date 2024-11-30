@@ -1,5 +1,6 @@
 package TicTacToe.Model;
 
+import TicTacToe.CellState;
 import TicTacToe.PlayerType;
 
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class Player {
    private String name;
     private PlayerType playertype;
 
-    public Player(int id, char symbol, String name) {
+    public Player(int id,String name, char symbol,PlayerType playertype) {
         this.id = id;
         Symbol = symbol;
         this.name = name;
@@ -62,8 +63,18 @@ public class Player {
 //        this.name=a;
 //
 //    }
-    public void makeMove(Board board){
+    public Move makeMove(Board board){
         //player make move in the board--set cell filled
+        Scanner sc=new Scanner(System.in);
+       System.out.println("Please enter the row");
+       int row=sc.nextInt();
+        System.out.println("Please enter the column");
+        int col=sc.nextInt();
+        //now go to specific row-col and update the board cell
+        Cell playedMoveCell=board.getMatrix().get(row).get(col);
+        playedMoveCell.setCellstate(CellState.FILLED);
+        playedMoveCell.setPlayer(this);//player object
+        return new Move(playedMoveCell,this);//move constructor need cell and player
 
     }
 }

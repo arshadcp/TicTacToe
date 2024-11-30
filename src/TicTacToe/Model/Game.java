@@ -5,10 +5,10 @@ import TicTacToe.Exceptions.InvalidSymbolException;
 import TicTacToe.Exceptions.botException;
 import TicTacToe.GameStatus;
 import TicTacToe.PlayerType;
-import TicTacToe.Strategy.WinningStrategy;
+import TicTacToe.Service.Strategy.WinningStrategy;
+import TicTacToe.WinningStrategyName;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -99,12 +99,14 @@ public class Game {
             this.players = players;
         }
 
-        public WinningStrategy getWinningStrategy() {
-            return winningStrategy;
-        }
+
 
         public void setWinningStrategy(WinningStrategy winningStrategy) {
             this.winningStrategy = winningStrategy;
+        }
+
+        public WinningStrategy getWinningStrategy() {
+            return winningStrategy;
         }
 
         public Builder setDimension(int dimension) {
