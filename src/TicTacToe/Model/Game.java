@@ -48,6 +48,30 @@ public class Game {
         return players;
     }
 
+    public List<Board> getBoardss() {
+        return boardss;
+    }
+
+    public void setBoardss(List<Board> boardss) {
+        this.boardss = boardss;
+    }
+
+    public WinningStrategy getWinningStrategy() {
+        return winningStrategy;
+    }
+
+    public void setWinningStrategy(WinningStrategy winningStrategy) {
+        this.winningStrategy = winningStrategy;
+    }
+
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+
+    public void setGameStatus(GameStatus gameStatus) {
+        this.gameStatus = gameStatus;
+    }
+
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
@@ -75,7 +99,7 @@ public class Game {
     public void setMoves(List<Move> moves) {
         this.moves = moves;
     }
-    public Builder builder(){
+    public static Builder builder(){
         return new Builder();
     }
     //Builder
@@ -85,7 +109,7 @@ public class Game {
         private int Dimension;
         private Board board;
         private List<Player>players;
-        private WinningStrategy winningStrategy;
+        private WinningStrategy winningStrategy;;
 
         public int getDimension() {
             return Dimension;
@@ -95,14 +119,15 @@ public class Game {
             return players;
         }
 
-        public void setPlayers(List<Player> players) {
+        public Builder setPlayers(List<Player> players) {
             this.players = players;
+            return this;
         }
 
 
-
-        public void setWinningStrategy(WinningStrategy winningStrategy) {
+        public Builder setWinningStrategy(WinningStrategy winningStrategy) {
             this.winningStrategy = winningStrategy;
+            return this;
         }
 
         public WinningStrategy getWinningStrategy() {

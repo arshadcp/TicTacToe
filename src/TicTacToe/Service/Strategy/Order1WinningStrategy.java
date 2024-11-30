@@ -23,21 +23,30 @@ public class Order1WinningStrategy implements WinningStrategy{
        corner=new HashMap<>();
        rowhashmap=new ArrayList<>();//?
        colhashmap=new ArrayList<>();
+       for(int i=0;i<Dimension;i++){//adding hashmaps in the list
+           rowhashmap.add(new HashMap<>());
+           colhashmap.add(new HashMap<>());
+       }
    }
 
 
 
 
     @Override
-    public boolean checkWinner(Board board, Move lastMove) {
-       Player player=lastMove.getCell().getPlayer();
+    public Player checkWinner(Board board, Move lastMove) {
+       Player player=lastMove.getPlayer();
        int row=lastMove.getCell().getRow();
         int col=lastMove.getCell().getCol();
         char Symbol=player.getSymbol();
-       return(rowCheck(row, Symbol)||colCheck( col, Symbol)
+       boolean winner=(rowCheck(row, Symbol)||colCheck( col, Symbol)
                 ||(leftdiagonal( row,  col)&&leftdiagonalCheck( Symbol))
                 ||(rightdiagonal( row, col) && rightdiagonalCheck( Symbol))
                 || cornerCheck( Symbol));
+       if(winner){
+           return player;
+       }else{
+           return null;
+       }
     }
     public boolean rowCheck(int row, char Symbol){
       //check how many symbols are present in row(rowhashmap)
@@ -92,6 +101,6 @@ public class Order1WinningStrategy implements WinningStrategy{
        return row==col;
     }
     public boolean rightdiagonal(int row,int col){
-        return row+col==Dimension;
+        return (row+col==Dimension-1);
     }
 }
